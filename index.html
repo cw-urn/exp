@@ -5,11 +5,14 @@
 </head>
 <body>
     <h1>Enter Three Numbers</h1>
+    <?php
+    print_r($_POST)
+    ?>
     <form id="numberForm">
-        Number 1: <input type="text" id="num1"><br>
-        Number 2: <input type="text" id="num2"><br>
-        Number 3: <input type="text" id="num3"><br>
-        <input type="button" value="Save Numbers" onclick="saveNumbers()">
+        Number 1: <input type="text" name="form[num1]"><br>
+        Number 2: <input type="text" name="form[num2]"><br>
+        Number 3: <input type="text" name="form[num3]"><br>
+        <input type="button" value="Save Numbers" onclick="">
     </form>
 
     <h2>Stored Numbers:</h2>
