@@ -21,34 +21,54 @@
             width: 10px;
             border: 1px solid black;
             background-color: white;
-            font-size: 5px;
+            font-size: 7px;
+            box-sizing: border-box;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
     <h1>Gamble simulator</h1>
-    <button id="gamble">gamble!</button>
     <div id='result_container'></div>
+    <button id="gamble">gamble!</button>
+    <p id="money"></p>
     <script>
-        var currency = 500;
-        var cost = 10;
-        function gamble() {
-            if (currency>=cost) {
-                currency=currency-cost;
-                if (Math.random() < 0.5) {
-                    document.getElementById('result_container').innerHTML += ('<div class="winshow" style="background-color: green">+' + cost + '</div>');
-                    currency+=(cost+cost);
-                } else {
-                    document.getElementById('result_container').innerHTML += ('<div class="winshow" style="background-color: red">-' + cost + '</div>');
-                }
-            }
-        }
-        
+        let currency = 500;
+        const cost = 10;
+        let gamble_count = 0;
+        const moneybox = document.getElementById('money');
+        const resultBox = document.getElementById('result_container');
         const button = document.getElementById('gamble');
 
-        button.addEventListener('click', function() {
-            gamble();
-        });
+        function updateMoney() {
+            moneybox.innerHTML = 'You have $' + currency + '.';
+            button.disabled = currency < cost;
+        }
+
+        updateMoney();
+
+        function gamble() {
+            if (currency >= cost) {
+                if (gamble_count == 101) {
+                    gamble_count = 0;
+                    resultBox.innerHTML = '';
+                }
+                gamble_count++;
+                currency -= cost;
+                if (Math.random() < 0.5) {
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: green">+' + cost + '</div>';
+                    currency += cost * 2;
+                } else {
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: red">-' + cost + '</div>';
+                }
+            }
+            updateMoney();
+        }
+
+        button.addEventListener('click', gamble);
     </script>
 </body>
 </html>
