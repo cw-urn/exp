@@ -8,6 +8,24 @@
             transform: scale(3);
             transform-origin: top left;
             padding: 6px;
+
+            position: relative;
+
+            background-color: #fff;
+
+            background-image: url('money-background.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: -1;
         }
         #result_container {
             height: 109px;
@@ -98,10 +116,10 @@
                 gamble_count++;
                 currency -= cost;
                 if (Math.random() < 0.5) {
-                    resultBox.innerHTML += '<div class="winshow" style="background-color: green"><div style="transform: scale(0.5); transform-origin: left;">+' + cost + '</div></div>';
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: green"><div style="transform: scaleX(0.5); transform-origin: left; margin-left: 4px;">+' + cost + '</div></div>';
                     currency += cost * 2;
                 } else {
-                    resultBox.innerHTML += '<div class="winshow" style="background-color: red"><div style="transform: scale(0.5); transform-origin: left;">-' + cost + '</div></div>';
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: red"><div style="transform: scaleX(0.5); transform-origin: left; margin-left: 4px;">-' + cost + '</div></div>';
                 }
             }
             updateMoney();
