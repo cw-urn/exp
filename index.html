@@ -4,6 +4,11 @@
     <title>Gambling Simulator</title>
     <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
     <style>
+        body {
+            transform: scale(3);
+            transform-origin: top left;
+            padding: 6px;
+        }
         #result_container {
             height: 109px;
             width: 109px;
@@ -35,10 +40,15 @@
             font-size: 1.2em;
             color: #171717;
             font-family: 'Manufacturing Consent', sans-serif;
+            margin: 0;
         }
         .h1_container {
-            border-bottom: 1px solid #808080;
-            width: 120%;
+           border-bottom: 1px solid #808080;
+           margin-bottom: 10px;
+           display: inline-block;
+           transform: scaleX(2);
+           transform-origin: left;
+            
         }
         button {
             width: 113px;
@@ -88,10 +98,10 @@
                 gamble_count++;
                 currency -= cost;
                 if (Math.random() < 0.5) {
-                    resultBox.innerHTML += '<div class="winshow" style="background-color: green">+' + cost + '</div>';
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: green"><div style="transform: scale(0.5); transform-origin: left;">+' + cost + '</div></div>';
                     currency += cost * 2;
                 } else {
-                    resultBox.innerHTML += '<div class="winshow" style="background-color: red">-' + cost + '</div>';
+                    resultBox.innerHTML += '<div class="winshow" style="background-color: red"><div style="transform: scale(0.5); transform-origin: left;">-' + cost + '</div></div>';
                 }
             }
             updateMoney();
