@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Number Input</title>
+    <title>Gambling Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
     <style>
         #result_container {
             height: 109px;
@@ -15,6 +16,8 @@
             gap: 1px;
             justify-content: flex-start;
             align-content: flex-start;
+            padding: 1px;
+            margin-bottom: 10px;
         }
         .winshow {
             height: 10px;
@@ -30,25 +33,34 @@
         }
         h1 {
             font-size: 1.2em;
-            border-bottom: 1px solid #808080;
             color: #171717;
+            font-family: 'Manufacturing Consent', sans-serif;
         }
-        
+        .h1_container {
+            border-bottom: 1px solid #808080;
+            width: 120%;
+        }
         button {
-            width: 109px;
+            width: 113px;
             height: 30px;
             background-color: #eee;
             border: 1px solid black;
             border-radius: 3px;
             color: #1a1a1a;
+            font-family: 'Manufacturing Consent', sans-serif;
         }
         p {
             color: #1a1a1a;
+            font-size: 11px;
+            font-family: 'Manufacturing Consent', sans-serif;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Gamble simulator</h1>
+    <div class="h1_container">
+        <h1>Gamble simulator</h1>
+    </div>
     <div id='result_container'></div>
     <button id="gamble">gamble!</button>
     <p id="money"></p>
